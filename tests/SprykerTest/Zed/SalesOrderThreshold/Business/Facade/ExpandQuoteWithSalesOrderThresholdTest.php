@@ -7,6 +7,7 @@
 
 namespace SprykerTest\Zed\SalesOrderThreshold\Business\Facade;
 
+use Codeception\Test\Unit;
 use Generated\Shared\DataBuilder\ItemBuilder;
 use Generated\Shared\DataBuilder\SalesOrderThresholdValueBuilder;
 use Generated\Shared\Transfer\ItemTransfer;
@@ -17,7 +18,6 @@ use Spryker\Shared\Kernel\Transfer\Exception\NullValueException;
 use Spryker\Shared\SalesOrderThreshold\SalesOrderThresholdConfig;
 use Spryker\Zed\SalesOrderThreshold\SalesOrderThresholdDependencyProvider;
 use Spryker\Zed\SalesOrderThresholdExtension\Dependency\Plugin\SalesOrderThresholdDataSourceStrategyPluginInterface;
-use SprykerTest\Zed\SalesOrderThreshold\Business\SalesOrderThresholdMocks;
 
 /**
  * Auto-generated group annotations
@@ -30,7 +30,7 @@ use SprykerTest\Zed\SalesOrderThreshold\Business\SalesOrderThresholdMocks;
  * @group ExpandQuoteWithSalesOrderThresholdTest
  * Add your own group annotations below this line
  */
-class ExpandQuoteWithSalesOrderThresholdTest extends SalesOrderThresholdMocks
+class ExpandQuoteWithSalesOrderThresholdTest extends Unit
 {
     /**
      * @uses \Spryker\Shared\SalesOrderThreshold\SalesOrderThresholdConfig::THRESHOLD_STRATEGY_KEY_HARD_MAXIMUM
