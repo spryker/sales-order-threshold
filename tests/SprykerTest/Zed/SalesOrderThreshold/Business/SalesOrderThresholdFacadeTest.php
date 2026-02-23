@@ -7,6 +7,7 @@
 
 namespace SprykerTest\Zed\SalesOrderThreshold\Business;
 
+use Codeception\Test\Unit;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\CurrencyTransfer;
 use Generated\Shared\Transfer\SalesOrderThresholdLocalizedMessageTransfer;
@@ -15,7 +16,6 @@ use Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer;
 use Generated\Shared\Transfer\SalesOrderThresholdValueTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
 use Spryker\Shared\SalesOrderThreshold\SalesOrderThresholdConfig;
-use Spryker\Zed\SalesOrderThreshold\Business\SalesOrderThresholdFacadeInterface;
 use Spryker\Zed\SalesOrderThreshold\Business\Strategy\Exception\SalesOrderThresholdTypeNotFoundException;
 use Spryker\Zed\SalesOrderThreshold\Communication\Plugin\Strategy\HardMaximumThresholdStrategyPlugin;
 use Spryker\Zed\SalesOrderThreshold\Communication\Plugin\Strategy\HardMinimumThresholdStrategyPlugin;
@@ -35,7 +35,7 @@ use Spryker\Zed\SalesOrderThreshold\SalesOrderThresholdDependencyProvider;
  * @group SalesOrderThresholdFacadeTest
  * Add your own group annotations below this line
  */
-class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
+class SalesOrderThresholdFacadeTest extends Unit
 {
     /**
      * @var \SprykerTest\Zed\SalesOrderThreshold\SalesOrderThresholdBusinessTester
@@ -55,7 +55,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
         $this->setupDependencies();
 
         // Act
-        $this->getFacade()->installSalesOrderThresholdTypes();
+        $this->tester->getFacade()->installSalesOrderThresholdTypes();
 
         // Assert
         $this->tester->assertSalesOrderThresholdTypeTableHasRecords(count($this->strategies));
@@ -71,7 +71,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
         $this->tester->setDependency(SalesOrderThresholdDependencyProvider::PLUGINS_SALES_ORDER_THRESHOLD_STRATEGY, [$testType]);
 
         // Act
-        $returnedTypeTransfer = $this->getFacade()->saveSalesOrderThresholdType($testType->toTransfer());
+        $returnedTypeTransfer = $this->tester->getFacade()->saveSalesOrderThresholdType($testType->toTransfer());
 
         // Assert
         $this->assertSame($testType->toTransfer()->getKey(), $returnedTypeTransfer->getKey());
@@ -104,7 +104,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
         $currencyTransferUSD = (new CurrencyTransfer())->setIdCurrency(2)->setCode('USD');
 
         // Act
-        $hardThreshold1 = $this->getFacade()->saveSalesOrderThreshold(
+        $hardThreshold1 = $this->tester->getFacade()->saveSalesOrderThreshold(
             $this->createSalesOrderThresholdTransfer(
                 $salesOrderThresholdHardTypeTransfer,
                 $storeTransferDE,
@@ -113,7 +113,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
             ),
         );
 
-        $hardThreshold2 = $this->getFacade()->saveSalesOrderThreshold(
+        $hardThreshold2 = $this->tester->getFacade()->saveSalesOrderThreshold(
             $this->createSalesOrderThresholdTransfer(
                 $salesOrderThresholdHardTypeTransfer,
                 $storeTransferDE,
@@ -122,7 +122,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
             ),
         );
 
-        $hardMaxThreshold = $this->getFacade()->saveSalesOrderThreshold(
+        $hardMaxThreshold = $this->tester->getFacade()->saveSalesOrderThreshold(
             $this->createSalesOrderThresholdTransfer(
                 $salesOrderThresholdHardMaxTypeTransfer,
                 $storeTransferDE,
@@ -131,7 +131,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
             ),
         );
 
-        $softThreshold1 = $this->getFacade()->saveSalesOrderThreshold(
+        $softThreshold1 = $this->tester->getFacade()->saveSalesOrderThreshold(
             $this->createSalesOrderThresholdTransfer(
                 $salesOrderThresholdSoftStrategy,
                 $storeTransferDE,
@@ -140,7 +140,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
             ),
         );
 
-        $softThreshold2 = $this->getFacade()->saveSalesOrderThreshold(
+        $softThreshold2 = $this->tester->getFacade()->saveSalesOrderThreshold(
             $this->createSalesOrderThresholdTransfer(
                 $salesOrderThresholdSoftStrategy,
                 $storeTransferUS,
@@ -149,7 +149,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
             ),
         );
 
-        $softThreshold3 = $this->getFacade()->saveSalesOrderThreshold(
+        $softThreshold3 = $this->tester->getFacade()->saveSalesOrderThreshold(
             $this->createSalesOrderThresholdTransfer(
                 $salesOrderThresholdSoftStrategy,
                 $storeTransferUS,
@@ -182,7 +182,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
         $this->expectException(SalesOrderThresholdTypeNotFoundException::class);
 
         // Act
-        $this->getFacade()->saveSalesOrderThreshold(
+        $this->tester->getFacade()->saveSalesOrderThreshold(
             $this->createSalesOrderThresholdTransfer(
                 $salesOrderThresholdTypeTransferWithWrongKey,
                 $storeTransferUS,
@@ -222,7 +222,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
             );
 
         // Act
-        $softThreshold = $this->getFacade()->saveSalesOrderThreshold(
+        $softThreshold = $this->tester->getFacade()->saveSalesOrderThreshold(
             $salesOrderThresholdTransfer,
         );
 
@@ -262,10 +262,10 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
             );
 
         // Act
-        $salesOrderThresholdTransfer = $this->getFacade()->saveSalesOrderThreshold($salesOrderThresholdTransfer);
+        $salesOrderThresholdTransfer = $this->tester->getFacade()->saveSalesOrderThreshold($salesOrderThresholdTransfer);
 
         // Assert
-        $globalThresholds = $this->getFacade()->getSalesOrderThresholds(
+        $globalThresholds = $this->tester->getFacade()->getSalesOrderThresholds(
             $storeTransfer,
             $currencyTransfer,
         );
@@ -290,7 +290,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
         $quoteTransfer = $this->tester->createTestQuoteTransfer();
 
         // Act
-        $this->getFacade()->addSalesOrderThresholdMessages($quoteTransfer);
+        $this->tester->getFacade()->addSalesOrderThresholdMessages($quoteTransfer);
     }
 
     /**
@@ -305,7 +305,7 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
         $checkoutResponseTransfer = new CheckoutResponseTransfer();
 
         // Act
-        $this->getFacade()->checkCheckoutSalesOrderThreshold(
+        $this->tester->getFacade()->checkCheckoutSalesOrderThreshold(
             $quoteTransfer,
             $checkoutResponseTransfer,
         );
@@ -398,15 +398,5 @@ class SalesOrderThresholdFacadeTest extends SalesOrderThresholdMocks
         foreach ($this->strategies as $strategy) {
             $this->tester->haveSalesOrderThresholdType($strategy->toTransfer());
         }
-    }
-
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\SalesOrderThresholdFacadeInterface
-     */
-    protected function getFacade(): SalesOrderThresholdFacadeInterface
-    {
-        $factory = $this->createSalesOrderThresholdBusinessFactoryMock();
-
-        return $this->createSalesOrderThresholdFacadeMock($factory);
     }
 }
