@@ -30,10 +30,6 @@ class SalesOrderThresholdReader implements SalesOrderThresholdReaderInterface
      */
     protected static $salesOrderThresholdTransfersCache = [];
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Persistence\SalesOrderThresholdRepositoryInterface $salesOrderThresholdRepository
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Translation\Hydrator\SalesOrderThresholdTranslationHydratorInterface $translationHydrator
-     */
     public function __construct(
         SalesOrderThresholdRepositoryInterface $salesOrderThresholdRepository,
         SalesOrderThresholdTranslationHydratorInterface $translationHydrator
@@ -70,11 +66,6 @@ class SalesOrderThresholdReader implements SalesOrderThresholdReaderInterface
         return $salesOrderThresholdTransfers;
     }
 
-    /**
-     * @param string $currencyTransferAndStoreTransferCacheKey
-     *
-     * @return bool
-     */
     protected function hasSalesOrderThresholdTransfersByCacheKey(string $currencyTransferAndStoreTransferCacheKey): bool
     {
         return isset(static::$salesOrderThresholdTransfersCache[$currencyTransferAndStoreTransferCacheKey]);
@@ -90,12 +81,6 @@ class SalesOrderThresholdReader implements SalesOrderThresholdReaderInterface
         return static::$salesOrderThresholdTransfersCache[$currencyTransferAndStoreTransferCacheKey];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return string
-     */
     protected function generateSalesOrderThresholdTransfersCacheKey(CurrencyTransfer $currencyTransfer, StoreTransfer $storeTransfer): string
     {
         return sprintf(

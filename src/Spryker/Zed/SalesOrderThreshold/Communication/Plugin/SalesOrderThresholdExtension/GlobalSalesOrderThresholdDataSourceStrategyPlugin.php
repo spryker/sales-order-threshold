@@ -49,11 +49,6 @@ class GlobalSalesOrderThresholdDataSourceStrategyPlugin extends AbstractPlugin i
         }, $salesOrderThresholdTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function assertRequiredAttributes(QuoteTransfer $quoteTransfer): void
     {
         $quoteTransfer

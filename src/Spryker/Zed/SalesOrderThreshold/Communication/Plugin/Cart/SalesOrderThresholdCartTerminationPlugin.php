@@ -55,11 +55,6 @@ class SalesOrderThresholdCartTerminationPlugin extends AbstractPlugin implements
         return false;
     }
 
-    /**
-     * @param string $terminationEventName
-     *
-     * @return bool
-     */
     protected function isSubscribedToTerminationEvent(string $terminationEventName): bool
     {
         return in_array($terminationEventName, static::SUBSCRIBED_TERMINATION_EVENT_NAMES, true);

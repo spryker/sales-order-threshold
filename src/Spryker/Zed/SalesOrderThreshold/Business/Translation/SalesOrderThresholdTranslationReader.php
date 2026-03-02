@@ -28,10 +28,6 @@ class SalesOrderThresholdTranslationReader implements SalesOrderThresholdTransla
      */
     protected $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade,
         SalesOrderThresholdToStoreFacadeInterface $storeFacade
@@ -40,11 +36,6 @@ class SalesOrderThresholdTranslationReader implements SalesOrderThresholdTransla
         $this->storeFacade = $storeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function hydrateLocalizedMessages(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): SalesOrderThresholdTransfer
     {
         $storeTransfer = $this->storeFacade
@@ -60,12 +51,6 @@ class SalesOrderThresholdTranslationReader implements SalesOrderThresholdTransla
         return $salesOrderThresholdTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     * @param string $localeIsoCode
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     protected function initOrUpdateLocalizedMessages(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer,
         string $localeIsoCode
@@ -92,23 +77,12 @@ class SalesOrderThresholdTranslationReader implements SalesOrderThresholdTransla
         return $salesOrderThresholdTransfer;
     }
 
-    /**
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     protected function createLocaleTransfer(string $localeName): LocaleTransfer
     {
         return (new LocaleTransfer())
             ->setLocaleName($localeName);
     }
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return string|null
-     */
     protected function findTranslationValue(string $keyName, LocaleTransfer $localeTransfer): ?string
     {
         if (!$this->glossaryFacade->hasTranslation($keyName, $localeTransfer)) {

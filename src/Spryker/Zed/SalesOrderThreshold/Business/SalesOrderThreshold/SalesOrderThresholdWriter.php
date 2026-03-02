@@ -45,13 +45,6 @@ class SalesOrderThresholdWriter implements SalesOrderThresholdWriterInterface
      */
     protected $translationWriter;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Persistence\SalesOrderThresholdEntityManagerInterface $salesOrderThresholdEntityManager
-     * @param \Spryker\Zed\SalesOrderThreshold\Persistence\SalesOrderThresholdRepositoryInterface $salesOrderThresholdRepository
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Translation\SalesOrderThresholdGlossaryKeyGeneratorInterface $glossaryKeyGenerator
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Translation\SalesOrderThresholdTranslationWriterInterface $translationWriter
-     */
     public function __construct(
         SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver,
         SalesOrderThresholdEntityManagerInterface $salesOrderThresholdEntityManager,
@@ -66,11 +59,6 @@ class SalesOrderThresholdWriter implements SalesOrderThresholdWriterInterface
         $this->translationWriter = $translationWriter;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function saveSalesOrderThreshold(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
     ): SalesOrderThresholdTransfer {
@@ -110,11 +98,6 @@ class SalesOrderThresholdWriter implements SalesOrderThresholdWriterInterface
         return $salesOrderThresholdTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return bool
-     */
     public function deleteSalesOrderThreshold(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
     ): bool {
@@ -131,21 +114,11 @@ class SalesOrderThresholdWriter implements SalesOrderThresholdWriterInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer
-     */
     public function saveSalesOrderThresholdType(SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer): SalesOrderThresholdTypeTransfer
     {
         return $this->salesOrderThresholdEntityManager->saveSalesOrderThresholdType($salesOrderThresholdTypeTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return bool
-     */
     protected function executeDeleteSalesOrderThresholdTransaction(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
     ): bool {

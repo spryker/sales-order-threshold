@@ -21,11 +21,6 @@ class SalesOrderThresholdGlossaryKeyGenerator implements SalesOrderThresholdGlos
      */
     protected const SALES_ORDER_THRESHOLD_GLOSSARY_MESSAGE = 'message';
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function assignMessageGlossaryKey(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
     ): SalesOrderThresholdTransfer {
@@ -38,11 +33,6 @@ class SalesOrderThresholdGlossaryKeyGenerator implements SalesOrderThresholdGlos
         return $salesOrderThresholdTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return string
-     */
     protected function generateMessageGlossaryKey(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): string
     {
         return strtolower(implode(
@@ -57,11 +47,6 @@ class SalesOrderThresholdGlossaryKeyGenerator implements SalesOrderThresholdGlos
         ));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return void
-     */
     protected function assertRequiredTransferAttributes(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): void
     {
         $salesOrderThresholdTransfer->getSalesOrderThresholdValue()

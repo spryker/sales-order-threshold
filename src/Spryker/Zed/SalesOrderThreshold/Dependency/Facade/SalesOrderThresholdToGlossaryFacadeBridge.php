@@ -58,11 +58,6 @@ class SalesOrderThresholdToGlossaryFacadeBridge implements SalesOrderThresholdTo
         return $this->glossaryFacade->deleteKey($keyName);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\KeyTranslationTransfer $keyTranslationTransfer
-     *
-     * @return bool
-     */
     public function saveGlossaryKeyTranslations(KeyTranslationTransfer $keyTranslationTransfer): bool
     {
         return $this->glossaryFacade->saveGlossaryKeyTranslations($keyTranslationTransfer);

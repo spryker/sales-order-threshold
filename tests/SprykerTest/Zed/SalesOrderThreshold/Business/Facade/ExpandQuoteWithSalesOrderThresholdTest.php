@@ -109,9 +109,6 @@ class ExpandQuoteWithSalesOrderThresholdTest extends Unit
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testNothingHappensWhenTotalsAreMissing(): void
     {
         // Arrange
@@ -131,9 +128,6 @@ class ExpandQuoteWithSalesOrderThresholdTest extends Unit
         $this->assertCount(0, $quoteTransfer->getSalesOrderThresholdValues());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQuoteWithSalesOrderThresholdValuesExpandsEmptyItemsWithoutThresholds(): void
     {
         // Arrange
@@ -147,9 +141,6 @@ class ExpandQuoteWithSalesOrderThresholdTest extends Unit
         $this->assertEmpty($quoteTransfer->getSalesOrderThresholdValues());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQuoteWithSalesOrderThresholdValuesExpectsCurrencyToBeProvided(): void
     {
         // Arrange
@@ -193,11 +184,6 @@ class ExpandQuoteWithSalesOrderThresholdTest extends Unit
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     *
-     * @return bool
-     */
     protected function isHardMaximumThresholdGroup(SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer): bool
     {
         return $salesOrderThresholdValueTransfer->getSalesOrderThresholdType()->getThresholdGroup() === SalesOrderThresholdConfig::GROUP_HARD_MAX;

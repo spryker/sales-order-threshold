@@ -56,9 +56,6 @@ class SalesOrderThresholdBusinessTester extends Actor
      */
     protected const CURRENCY_EUR = 'EUR';
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createTestQuoteTransfer(): QuoteTransfer
     {
         return (new QuoteTransfer())
@@ -67,12 +64,6 @@ class SalesOrderThresholdBusinessTester extends Actor
             ->setStore($this->getStoreTransfer());
     }
 
-    /**
-     * @param int $minimumThresholdValue
-     * @param int $maximumThresholdValue
-     *
-     * @return void
-     */
     public function setupThresholdDependencies(int $minimumThresholdValue, int $maximumThresholdValue): void
     {
         $salesOrderThresholdStrategies = [
@@ -105,9 +96,6 @@ class SalesOrderThresholdBusinessTester extends Actor
         }
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
     public function getStoreTransfer(): StoreTransfer
     {
         return $this->haveStore([
@@ -115,9 +103,6 @@ class SalesOrderThresholdBusinessTester extends Actor
         ]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getCurrencyTransfer(): CurrencyTransfer
     {
         return $this->getLocator()
@@ -147,13 +132,6 @@ class SalesOrderThresholdBusinessTester extends Actor
         return $expenseTransfers;
     }
 
-    /**
-     * @param string $expenseType
-     * @param int $expenseSumPrice
-     * @param int $expenseSumGrossPrice
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteTransferWithExpense(
         string $expenseType,
         int $expenseSumPrice,
@@ -167,17 +145,11 @@ class SalesOrderThresholdBusinessTester extends Actor
         );
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesExpenseQuery
-     */
     protected function getSalesExpenseQuery(): SpySalesExpenseQuery
     {
         return SpySalesExpenseQuery::create();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\TotalsTransfer
-     */
     protected function createTotalsTransfer(): TotalsTransfer
     {
         return (new TotalsTransfer())

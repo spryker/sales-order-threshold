@@ -21,33 +21,21 @@ use Spryker\Zed\SalesOrderThreshold\Persistence\Propel\Mapper\SalesOrderThreshol
  */
 class SalesOrderThresholdPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdTypeQuery
-     */
     public function createSalesOrderThresholdTypeQuery(): SpySalesOrderThresholdTypeQuery
     {
         return SpySalesOrderThresholdTypeQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdQuery
-     */
     public function createSalesOrderThresholdQuery(): SpySalesOrderThresholdQuery
     {
         return SpySalesOrderThresholdQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Persistence\Propel\Mapper\SalesOrderThresholdMapperInterface
-     */
     public function createSalesOrderThresholdMapper(): SalesOrderThresholdMapperInterface
     {
         return new SalesOrderThresholdMapper();
     }
 
-    /**
-     * @return \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdTaxSetQuery
-     */
     public function createSalesOrderThresholdTaxSetPropelQuery(): SpySalesOrderThresholdTaxSetQuery
     {
         return SpySalesOrderThresholdTaxSetQuery::create();

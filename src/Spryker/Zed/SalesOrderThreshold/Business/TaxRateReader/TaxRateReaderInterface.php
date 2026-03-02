@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface TaxRateReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return float
-     */
     public function getSalesOrderThresholdTaxRate(?StoreTransfer $storeTransfer = null): float;
 }

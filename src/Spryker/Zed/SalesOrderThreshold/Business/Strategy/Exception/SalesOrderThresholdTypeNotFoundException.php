@@ -17,12 +17,6 @@ class SalesOrderThresholdTypeNotFoundException extends Exception
      */
     protected const MESSAGE = 'No strategy was found for the key `%s`';
 
-    /**
-     * @param string $salesOrderThresholdTypeKey
-     * @param string $message
-     * @param int $code
-     * @param \Throwable|null $previous
-     */
     public function __construct(string $salesOrderThresholdTypeKey, string $message = '', int $code = 0, ?Throwable $previous = null)
     {
         $this->message = sprintf(static::MESSAGE, $salesOrderThresholdTypeKey);

@@ -13,18 +13,8 @@ use Generated\Shared\Transfer\SalesExpenseCollectionResponseTransfer;
 
 interface SalesOrderThresholdToSalesFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ExpenseTransfer $expenseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ExpenseTransfer
-     */
     public function createSalesExpense(ExpenseTransfer $expenseTransfer): ExpenseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesExpenseCollectionDeleteCriteriaTransfer $salesExpenseCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesExpenseCollectionResponseTransfer
-     */
     public function deleteSalesExpenseCollection(
         SalesExpenseCollectionDeleteCriteriaTransfer $salesExpenseCollectionDeleteCriteriaTransfer
     ): SalesExpenseCollectionResponseTransfer;

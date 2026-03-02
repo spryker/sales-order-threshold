@@ -20,20 +20,12 @@ class SalesOrderThresholdTranslationWriter implements SalesOrderThresholdTransla
      */
     protected $glossaryFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade
-     */
     public function __construct(
         SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade
     ) {
         $this->glossaryFacade = $glossaryFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function saveLocalizedMessages(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): SalesOrderThresholdTransfer
     {
         $keyTranslationTransfer = $this->createKeyTranslationTransfer(
@@ -46,11 +38,6 @@ class SalesOrderThresholdTranslationWriter implements SalesOrderThresholdTransla
         return $salesOrderThresholdTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return void
-     */
     public function deleteLocalizedMessages(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): void
     {
         foreach ($salesOrderThresholdTransfer->getLocalizedMessages() as $localizedMessageTransfer) {

@@ -14,23 +14,11 @@ use Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdType;
 
 interface SalesOrderThresholdMapperInterface
 {
-    /**
-     * @param \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdType $spySalesOrderThresholdType
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer
-     */
     public function mapSalesOrderThresholdTypeEntityToTransfer(
         SpySalesOrderThresholdType $spySalesOrderThresholdType,
         SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
     ): SalesOrderThresholdTypeTransfer;
 
-    /**
-     * @param \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThreshold $salesOrderThresholdEntity
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function mapSalesOrderThresholdEntityToTransfer(
         SpySalesOrderThreshold $salesOrderThresholdEntity,
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer

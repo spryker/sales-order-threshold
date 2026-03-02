@@ -14,10 +14,5 @@ use Generated\Shared\Transfer\SalesOrderThresholdTransfer;
  */
 interface SalesOrderThresholdTranslationReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function hydrateLocalizedMessages(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): SalesOrderThresholdTransfer;
 }

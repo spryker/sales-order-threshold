@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\CalculableObjectTransfer;
 
 interface ExpenseCalculatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return void
-     */
     public function addSalesOrderThresholdExpenses(CalculableObjectTransfer $calculableObjectTransfer): void;
 }

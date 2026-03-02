@@ -20,20 +20,11 @@ class ExpenseSaver implements ExpenseSaverInterface
      */
     protected $salesFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToSalesFacadeInterface $salesFacade
-     */
     public function __construct(SalesOrderThresholdToSalesFacadeInterface $salesFacade)
     {
         $this->salesFacade = $salesFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return \Generated\Shared\Transfer\SaveOrderTransfer
-     */
     public function saveSalesOrderSalesOrderThresholdExpense(
         QuoteTransfer $quoteTransfer,
         SaveOrderTransfer $saveOrderTransfer
@@ -49,12 +40,6 @@ class ExpenseSaver implements ExpenseSaverInterface
         return $saveOrderTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ExpenseTransfer $expenseTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return \Generated\Shared\Transfer\SaveOrderTransfer
-     */
     protected function addExpenseToOrder(
         ExpenseTransfer $expenseTransfer,
         SaveOrderTransfer $saveOrderTransfer

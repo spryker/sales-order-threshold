@@ -64,9 +64,6 @@ use Spryker\Zed\SalesOrderThreshold\SalesOrderThresholdDependencyProvider;
  */
 class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Installer\SalesOrderThresholdTypeInstallerInterface
-     */
     public function createSalesOrderThresholdTypeInstaller(): SalesOrderThresholdTypeInstallerInterface
     {
         return new SalesOrderThresholdTypeInstaller(
@@ -75,9 +72,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\SalesOrderThresholdType\SalesOrderThresholdTypeReaderInterface
-     */
     public function createSalesOrderThresholdTypeReader(): SalesOrderThresholdTypeReaderInterface
     {
         return new SalesOrderThresholdTypeReader(
@@ -86,9 +80,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\SalesOrderThreshold\SalesOrderThresholdReaderInterface
-     */
     public function createSalesOrderThresholdReader(): SalesOrderThresholdReaderInterface
     {
         return new SalesOrderThresholdReader(
@@ -97,9 +88,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\SalesOrderThreshold\SalesOrderThresholdWriterInterface
-     */
     public function createSalesOrderThresholdWriter(): SalesOrderThresholdWriterInterface
     {
         return new SalesOrderThresholdWriter(
@@ -111,17 +99,11 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Translation\SalesOrderThresholdGlossaryKeyGeneratorInterface
-     */
     public function createSalesOrderThresholdGlossaryKeyGenerator(): SalesOrderThresholdGlossaryKeyGeneratorInterface
     {
         return new SalesOrderThresholdGlossaryKeyGenerator();
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Translation\SalesOrderThresholdTranslationReaderInterface
-     */
     public function createSalesOrderThresholdTranslationReader(): SalesOrderThresholdTranslationReaderInterface
     {
         return new SalesOrderThresholdTranslationReader(
@@ -130,9 +112,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Translation\SalesOrderThresholdTranslationWriterInterface
-     */
     public function createSalesOrderThresholdTranslationWriter(): SalesOrderThresholdTranslationWriterInterface
     {
         return new SalesOrderThresholdTranslationWriter(
@@ -140,9 +119,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface
-     */
     public function createSalesOrderThresholdStrategyResolver(): SalesOrderThresholdStrategyResolverInterface
     {
         return new SalesOrderThresholdStrategyResolver(
@@ -150,9 +126,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\HardThresholdCheck\HardThresholdCheckerInterface
-     */
     public function createHardThresholdChecker(): HardThresholdCheckerInterface
     {
         return new HardThresholdChecker(
@@ -163,9 +136,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\ExpenseSaver\ExpenseSaverInterface
-     */
     public function createExpenseSaver(): ExpenseSaverInterface
     {
         return new ExpenseSaver(
@@ -173,9 +143,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\ThresholdMessenger\ThresholdMessengerInterface
-     */
     public function createThresholdMessenger(): ThresholdMessengerInterface
     {
         return new ThresholdMessenger(
@@ -186,9 +153,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\ExpenseCalculator\ExpenseCalculatorInterface
-     */
     public function createExpenseCalculator(): ExpenseCalculatorInterface
     {
         return new ExpenseCalculator(
@@ -198,17 +162,11 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\ExpenseRemover\ExpenseRemoverInterface
-     */
     public function createExpenseRemover(): ExpenseRemoverInterface
     {
         return new ExpenseRemover();
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\DataSource\SalesOrderThresholdDataSourceStrategyResolverInterface
-     */
     public function createSalesOrderThresholdDataSourceStrategyResolver(): SalesOrderThresholdDataSourceStrategyResolverInterface
     {
         return new SalesOrderThresholdDataSourceStrategyResolver(
@@ -217,9 +175,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\TaxRateReader\TaxRateReaderInterface
-     */
     public function createTaxRateReader(): TaxRateReaderInterface
     {
         return new TaxRateReader(
@@ -229,17 +184,11 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Translation\Hydrator\SalesOrderThresholdTranslationHydratorInterface
-     */
     public function createSalesOrderThresholdTranslationHydrator(): SalesOrderThresholdTranslationHydratorInterface
     {
         return new SalesOrderThresholdTranslationHydrator($this->getGlossaryFacade(), $this->getLocaleFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Validator\SalesOrderThresholdValidatorInterface
-     */
     public function createSalesOrderThresholdsValidator(): SalesOrderThresholdValidatorInterface
     {
         return new SalesOrderThresholdValidator(
@@ -250,9 +199,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Expander\QuoteExpanderInterface
-     */
     public function createQuoteExpander(): QuoteExpanderInterface
     {
         return new QuoteExpander(
@@ -261,9 +207,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Expander\SalesOrderThresholdValueExpanderInterface
-     */
     public function createSalesOrderThresholdValueExpander(): SalesOrderThresholdValueExpanderInterface
     {
         return new SalesOrderThresholdValueExpander(
@@ -274,9 +217,6 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Business\Replacer\SalesOrderThresholdExpensesReplacerInterface
-     */
     public function createSalesOrderThresholdExpensesReplacer(): SalesOrderThresholdExpensesReplacerInterface
     {
         return new SalesOrderThresholdExpensesReplacer($this->createExpenseSaver(), $this->getSalesFacade());
@@ -290,41 +230,26 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::SALES_ORDER_THRESHOLD_DATA_SOURCE_STRATEGIES);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToGlossaryFacadeInterface
-     */
     public function getGlossaryFacade(): SalesOrderThresholdToGlossaryFacadeInterface
     {
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::FACADE_GLOSSARY);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMoneyFacadeInterface
-     */
     public function getMoneyFacade(): SalesOrderThresholdToMoneyFacadeInterface
     {
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::FACADE_MONEY);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToStoreFacadeInterface
-     */
     public function getStoreFacade(): SalesOrderThresholdToStoreFacadeInterface
     {
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::FACADE_STORE);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMessengerFacadeInterface
-     */
     public function getMessengerFacade(): SalesOrderThresholdToMessengerFacadeInterface
     {
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::FACADE_MESSENGER);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToTaxFacadeInterface
-     */
     public function getTaxFacade(): SalesOrderThresholdToTaxFacadeInterface
     {
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::FACADE_TAX);
@@ -338,17 +263,11 @@ class SalesOrderThresholdBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::PLUGINS_SALES_ORDER_THRESHOLD_STRATEGY);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToSalesFacadeInterface
-     */
     public function getSalesFacade(): SalesOrderThresholdToSalesFacadeInterface
     {
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::FACADE_SALES);
     }
 
-    /**
-     * @return \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): SalesOrderThresholdToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(SalesOrderThresholdDependencyProvider::FACADE_LOCALE);

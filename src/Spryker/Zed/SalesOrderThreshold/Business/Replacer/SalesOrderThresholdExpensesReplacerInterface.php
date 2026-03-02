@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\SaveOrderTransfer;
 
 interface SalesOrderThresholdExpensesReplacerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return void
-     */
     public function replaceSalesOrderThresholdExpenses(
         QuoteTransfer $quoteTransfer,
         SaveOrderTransfer $saveOrderTransfer

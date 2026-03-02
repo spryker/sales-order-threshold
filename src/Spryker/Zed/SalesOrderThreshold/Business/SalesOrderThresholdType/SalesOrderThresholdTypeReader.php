@@ -23,10 +23,6 @@ class SalesOrderThresholdTypeReader implements SalesOrderThresholdTypeReaderInte
      */
     protected $salesOrderThresholdRepository;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Persistence\SalesOrderThresholdRepositoryInterface $salesOrderThresholdRepository
-     */
     public function __construct(
         SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver,
         SalesOrderThresholdRepositoryInterface $salesOrderThresholdRepository
@@ -35,11 +31,6 @@ class SalesOrderThresholdTypeReader implements SalesOrderThresholdTypeReaderInte
         $this->salesOrderThresholdRepository = $salesOrderThresholdRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer
-     */
     public function getSalesOrderThresholdTypeByKey(
         SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
     ): SalesOrderThresholdTypeTransfer {

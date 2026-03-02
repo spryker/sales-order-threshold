@@ -45,12 +45,6 @@ class SalesOrderThresholdValidator implements SalesOrderThresholdValidatorInterf
      */
     protected $salesOrderThresholdConfig;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\DataSource\SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMoneyFacadeInterface $moneyFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\SalesOrderThresholdConfig $salesOrderThresholdConfig
-     */
     public function __construct(
         SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver,
         SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver,
@@ -63,11 +57,6 @@ class SalesOrderThresholdValidator implements SalesOrderThresholdValidatorInterf
         $this->salesOrderThresholdConfig = $salesOrderThresholdConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutDataTransfer $checkoutDataTransfer
-     *
-     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
-     */
     public function validateSalesOrderThresholdsCheckoutData(CheckoutDataTransfer $checkoutDataTransfer): CheckoutResponseTransfer
     {
         $checkoutResponseTransfer = (new CheckoutResponseTransfer())->setIsSuccess(true);
@@ -117,13 +106,6 @@ class SalesOrderThresholdValidator implements SalesOrderThresholdValidatorInterf
         return $checkoutResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     *
-     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
-     */
     protected function addErrorMessageToCheckoutResponse(
         CheckoutResponseTransfer $checkoutResponseTransfer,
         CurrencyTransfer $currencyTransfer,
@@ -141,12 +123,6 @@ class SalesOrderThresholdValidator implements SalesOrderThresholdValidatorInterf
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\CheckoutErrorTransfer
-     */
     protected function createCheckoutErrorTransfer(
         SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer,
         CurrencyTransfer $currencyTransfer
@@ -160,12 +136,6 @@ class SalesOrderThresholdValidator implements SalesOrderThresholdValidatorInterf
         ]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param string $amount
-     *
-     * @return \Generated\Shared\Transfer\MoneyTransfer
-     */
     protected function createMoneyTransfer(
         CurrencyTransfer $currencyTransfer,
         string $amount

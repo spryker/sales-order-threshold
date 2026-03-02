@@ -16,20 +16,10 @@ use Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToSales
 
 class SalesOrderThresholdExpensesReplacer implements SalesOrderThresholdExpensesReplacerInterface
 {
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\ExpenseSaver\ExpenseSaverInterface $expenseSaver
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToSalesFacadeInterface $salesFacade
-     */
     public function __construct(protected ExpenseSaverInterface $expenseSaver, protected SalesOrderThresholdToSalesFacadeInterface $salesFacade)
     {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return void
-     */
     public function replaceSalesOrderThresholdExpenses(
         QuoteTransfer $quoteTransfer,
         SaveOrderTransfer $saveOrderTransfer

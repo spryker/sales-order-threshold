@@ -23,10 +23,6 @@ class QuoteExpander implements QuoteExpanderInterface
      */
     protected $salesOrderThresholdValueExpander;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\DataSource\SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Expander\SalesOrderThresholdValueExpanderInterface $salesOrderThresholdValueExpander
-     */
     public function __construct(
         SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver,
         SalesOrderThresholdValueExpanderInterface $salesOrderThresholdValueExpander
@@ -35,11 +31,6 @@ class QuoteExpander implements QuoteExpanderInterface
         $this->salesOrderThresholdValueExpander = $salesOrderThresholdValueExpander;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function expandQuoteWithSalesOrderThresholdValues(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         if (!$quoteTransfer->getTotals()) {

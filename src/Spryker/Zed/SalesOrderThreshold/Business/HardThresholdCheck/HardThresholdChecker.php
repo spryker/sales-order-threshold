@@ -56,12 +56,6 @@ class HardThresholdChecker implements HardThresholdCheckerInterface
      */
     protected $moneyFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\DataSource\SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMessengerFacadeInterface $messengerFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMoneyFacadeInterface $moneyFacade
-     */
     public function __construct(
         SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver,
         SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver,
@@ -74,12 +68,6 @@ class HardThresholdChecker implements HardThresholdCheckerInterface
         $this->moneyFacade = $moneyFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return bool
-     */
     public function checkQuoteForHardThreshold(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): bool
     {
         $salesOrderThresholdValueTransfers = $this->salesOrderThresholdDataSourceStrategyResolver->findApplicableThresholds($quoteTransfer);
@@ -111,13 +99,6 @@ class HardThresholdChecker implements HardThresholdCheckerInterface
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     *
-     * @return void
-     */
     protected function addErrorMessageToCheckoutResponse(
         CheckoutResponseTransfer $checkoutResponseTransfer,
         CurrencyTransfer $currencyTransfer,
@@ -142,12 +123,6 @@ class HardThresholdChecker implements HardThresholdCheckerInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyTransfer
-     */
     protected function createMoneyTransfer(
         SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer,
         CurrencyTransfer $currencyTransfer
@@ -158,11 +133,6 @@ class HardThresholdChecker implements HardThresholdCheckerInterface
             )->setCurrency($currencyTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     *
-     * @return void
-     */
     protected function assertRequiredAttributes(SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer): void
     {
         $salesOrderThresholdValueTransfer

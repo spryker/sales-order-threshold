@@ -39,11 +39,6 @@ class ExpenseCalculator implements ExpenseCalculatorInterface
      */
     protected $salesOrderThresholdDataSourceStrategyResolver;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\DataSource\SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\TaxRateReader\TaxRateReaderInterface $taxRateReader
-     */
     public function __construct(
         SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver,
         SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver,
@@ -54,11 +49,6 @@ class ExpenseCalculator implements ExpenseCalculatorInterface
         $this->taxRateReader = $taxRateReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return void
-     */
     public function addSalesOrderThresholdExpenses(CalculableObjectTransfer $calculableObjectTransfer): void
     {
         $salesOrderThresholdValueTransfers = $this->salesOrderThresholdDataSourceStrategyResolver
@@ -76,11 +66,6 @@ class ExpenseCalculator implements ExpenseCalculatorInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function prepareCalculatedQuoteTransfer(CalculableObjectTransfer $calculableObjectTransfer): QuoteTransfer
     {
         return (new QuoteTransfer())
@@ -89,12 +74,6 @@ class ExpenseCalculator implements ExpenseCalculatorInterface
             ->setTotals(clone $calculableObjectTransfer->getTotals());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     *
-     * @return void
-     */
     protected function addExpense(CalculableObjectTransfer $calculableObjectTransfer, SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer): void
     {
         $this->assertRequiredAttributes($salesOrderThresholdValueTransfer);
@@ -127,11 +106,6 @@ class ExpenseCalculator implements ExpenseCalculatorInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     *
-     * @return void
-     */
     protected function assertRequiredAttributes(SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer): void
     {
         $salesOrderThresholdValueTransfer
@@ -143,13 +117,6 @@ class ExpenseCalculator implements ExpenseCalculatorInterface
             ->requireKey();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     * @param int $fee
-     *
-     * @return void
-     */
     protected function addSalesOrderThresholdExpense(
         SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer,
         CalculableObjectTransfer $calculableObjectTransfer,
@@ -160,14 +127,6 @@ class ExpenseCalculator implements ExpenseCalculatorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     * @param int $expensePrice
-     * @param string $priceMode
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ExpenseTransfer
-     */
     protected function createExpenseByPriceMode(
         SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer,
         int $expensePrice,

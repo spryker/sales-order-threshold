@@ -27,10 +27,6 @@ class SalesOrderThresholdTranslationHydrator implements SalesOrderThresholdTrans
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade,
         SalesOrderThresholdToLocaleFacadeInterface $localeFacade
@@ -148,12 +144,6 @@ class SalesOrderThresholdTranslationHydrator implements SalesOrderThresholdTrans
         return $indexedGlossaryKeyTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Generated\Shared\Transfer\TranslationTransfer|null $translationTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdLocalizedMessageTransfer
-     */
     protected function createLocalizedMessage(
         LocaleTransfer $localeTransfer,
         ?TranslationTransfer $translationTransfer
@@ -166,11 +156,6 @@ class SalesOrderThresholdTranslationHydrator implements SalesOrderThresholdTrans
         return $salesOrderThresholdLocalizedMessageTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return string|null
-     */
     protected function getGlossaryKey(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): ?string
     {
         if ($salesOrderThresholdTransfer->getSalesOrderThresholdValue() === null) {

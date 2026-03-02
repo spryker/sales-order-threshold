@@ -91,11 +91,6 @@ class SalesOrderThresholdRepository extends AbstractRepository implements SalesO
         return $salesOrderThresholdTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer|null
-     */
     public function findSalesOrderThreshold(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
     ): ?SalesOrderThresholdTransfer {
@@ -117,9 +112,6 @@ class SalesOrderThresholdRepository extends AbstractRepository implements SalesO
             );
     }
 
-    /**
-     * @return int|null
-     */
     public function findSalesOrderThresholdTaxSetId(): ?int
     {
         /** @var int|null $idTaxSet */

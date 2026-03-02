@@ -92,9 +92,6 @@ class SalesOrderThresholdRepositoryTest extends Unit
         $this->assertSame($expectedRate, $maxRate);
     }
 
-    /**
-     * @return array
-     */
     public function getFindMaxTaxRateByCountryIso2CodeData(): array
     {
         return [

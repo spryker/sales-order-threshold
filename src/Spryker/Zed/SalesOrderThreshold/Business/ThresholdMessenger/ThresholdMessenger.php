@@ -50,12 +50,6 @@ class ThresholdMessenger implements ThresholdMessengerInterface
      */
     protected $salesOrderThresholdStrategyResolver;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMessengerFacadeInterface $messengerFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMoneyFacadeInterface $moneyFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\DataSource\SalesOrderThresholdDataSourceStrategyResolverInterface $salesOrderThresholdDataSourceStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver
-     */
     public function __construct(
         SalesOrderThresholdToMessengerFacadeInterface $messengerFacade,
         SalesOrderThresholdToMoneyFacadeInterface $moneyFacade,
@@ -68,11 +62,6 @@ class ThresholdMessenger implements ThresholdMessengerInterface
         $this->salesOrderThresholdStrategyResolver = $salesOrderThresholdStrategyResolver;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function addSalesOrderThresholdMessages(
         QuoteTransfer $quoteTransfer
     ): QuoteTransfer {
@@ -118,14 +107,6 @@ class ThresholdMessenger implements ThresholdMessengerInterface
         return $thresholdMessages;
     }
 
-    /**
-     * @param string $messageGlossaryKey
-     * @param string $threshold
-     * @param string $fee
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessageTransfer(
         string $messageGlossaryKey,
         string $threshold,
@@ -149,12 +130,6 @@ class ThresholdMessenger implements ThresholdMessengerInterface
             ->setParameters($messageParams);
     }
 
-    /**
-     * @param string $moneyValue
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyTransfer
-     */
     protected function createMoneyTransfer(
         string $moneyValue,
         CurrencyTransfer $currencyTransfer

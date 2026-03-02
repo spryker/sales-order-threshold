@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer;
 
 interface SalesOrderThresholdTypeReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer
-     */
     public function getSalesOrderThresholdTypeByKey(
         SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
     ): SalesOrderThresholdTypeTransfer;

@@ -47,9 +47,6 @@ class SalesOrderThresholdFacadeTest extends Unit
      */
     protected $strategies;
 
-    /**
-     * @return void
-     */
     public function testInstallSalesOrderThresholdTypesShouldPersistTypes(): void
     {
         $this->setupDependencies();
@@ -61,9 +58,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         $this->tester->assertSalesOrderThresholdTypeTableHasRecords(count($this->strategies));
     }
 
-    /**
-     * @return void
-     */
     public function testSaveSalesOrderThresholdTypeShouldPersistInDatabase(): void
     {
         // Arrange
@@ -78,9 +72,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         $this->assertSame($testType->toTransfer()->getThresholdGroup(), $returnedTypeTransfer->getThresholdGroup());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveHardAndSoftSalesOrderThresholds(): void
     {
         $this->setupDependencies();
@@ -167,9 +158,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         $this->assertNotEquals($softThreshold2->getIdSalesOrderThreshold(), $softThreshold3->getIdSalesOrderThreshold());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveSalesOrderThresholdWithInvalidKeyThrowsException(): void
     {
         $this->setupDependencies();
@@ -192,9 +180,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testSaveSalesOrderThresholdWithLocalizedMessages(): void
     {
         $this->setupDependencies();
@@ -231,9 +216,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         $this->assertCount(1, $softThreshold->getLocalizedMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testGetSalesOrderThresholds(): void
     {
         $this->setupDependencies();
@@ -279,9 +261,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testCartPostSaveSalesOrderThresholdCheck(): void
     {
         $this->setupDependencies();
@@ -293,9 +272,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         $this->tester->getFacade()->addSalesOrderThresholdMessages($quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckCheckoutSalesOrderThreshold(): void
     {
         $this->setupDependencies();
@@ -311,9 +287,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testHardMaximumThreshHoldStrategyIsApplicableTrue(): void
     {
         $salesOrderThresholdValueTransfer = (new SalesOrderThresholdValueTransfer())->setValue(300)
@@ -325,9 +298,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         $this->assertTrue($hardMaximumThresholdStrategy->isApplicable($salesOrderThresholdValueTransfer));
     }
 
-    /**
-     * @return void
-     */
     public function testHardMaximumThreshHoldStrategyIsValidTrue(): void
     {
         $salesOrderThresholdValueTransfer = (new SalesOrderThresholdValueTransfer())->setValue(2);
@@ -337,15 +307,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         $this->assertTrue($hardMaximumThresholdStrategy->isValid($salesOrderThresholdValueTransfer));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param int $thresholdValue
-     * @param int|null $fee
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     protected function createSalesOrderThresholdTransfer(
         SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer,
         StoreTransfer $storeTransfer,
@@ -363,11 +324,6 @@ class SalesOrderThresholdFacadeTest extends Unit
             ->setCurrency($currencyTransfer);
     }
 
-    /**
-     * @param string $strategyGroup
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer|null
-     */
     protected function findSalesOrderThresholdTypeTransferForGroup(
         string $strategyGroup
     ): ?SalesOrderThresholdTypeTransfer {
@@ -380,9 +336,6 @@ class SalesOrderThresholdFacadeTest extends Unit
         return null;
     }
 
-    /**
-     * @return void
-     */
     protected function setupDependencies(): void
     {
         $this->strategies = [

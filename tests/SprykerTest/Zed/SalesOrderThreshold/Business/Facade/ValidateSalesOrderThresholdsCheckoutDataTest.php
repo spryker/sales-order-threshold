@@ -106,9 +106,6 @@ class ValidateSalesOrderThresholdsCheckoutDataTest extends Unit
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testValidateSalesOrderThresholdsCheckoutDataValidatesWithoutThresholds(): void
     {
         // Arrange
@@ -129,9 +126,6 @@ class ValidateSalesOrderThresholdsCheckoutDataTest extends Unit
         $this->assertTrue($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateSalesOrderThresholdsCheckoutDataExpectsQuoteToBeProvided(): void
     {
         // Arrange
@@ -144,9 +138,6 @@ class ValidateSalesOrderThresholdsCheckoutDataTest extends Unit
         $this->tester->getFacade()->validateSalesOrderThresholdsCheckoutData($checkoutDataTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testValidateSalesOrderThresholdsCheckoutDataExpectsCurrencyToBeProvided(): void
     {
         // Arrange
@@ -185,9 +176,6 @@ class ValidateSalesOrderThresholdsCheckoutDataTest extends Unit
         return $salesOrderThresholdDataSourceStrategyPluginMock;
     }
 
-    /**
-     * @return void
-     */
     protected function cleanStaticProperty(): void
     {
         $reflectedClass = new ReflectionClass(SalesOrderThresholdReader::class);

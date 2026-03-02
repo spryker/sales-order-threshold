@@ -48,9 +48,6 @@ class ReplaceSalesOrderThresholdExpensesTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -58,9 +55,6 @@ class ReplaceSalesOrderThresholdExpensesTest extends Unit
         $this->tester->configureTestStateMachine([static::DEFAULT_OMS_PROCESS_NAME]);
     }
 
-    /**
-     * @return void
-     */
     public function testReplacesExpenseWithThresholdExpenseType(): void
     {
         // Arrange
@@ -89,9 +83,6 @@ class ReplaceSalesOrderThresholdExpensesTest extends Unit
         $this->assertExpense($expenseTransfersIndexedByType, static::THRESHOLD_EXPENSE_TYPE, 200, 200);
     }
 
-    /**
-     * @return void
-     */
     public function testDeletesExpenseWithThresholdExpenseType(): void
     {
         // Arrange
@@ -119,9 +110,6 @@ class ReplaceSalesOrderThresholdExpensesTest extends Unit
         $this->assertExpense($expenseTransfersIndexedByType, static::TEST_EXPENSE_TYPE, 50, 50);
     }
 
-    /**
-     * @return void
-     */
     public function testAddsExpenseWithThresholdExpenseType(): void
     {
         // Arrange
@@ -144,9 +132,6 @@ class ReplaceSalesOrderThresholdExpensesTest extends Unit
         $this->assertExpense($expenseTransfersIndexedByType, static::THRESHOLD_EXPENSE_TYPE, 200, 200);
     }
 
-    /**
-     * @return void
-     */
     public function testThrowsExceptionWhenIdSalesOrderIsNotSet(): void
     {
         // Assert

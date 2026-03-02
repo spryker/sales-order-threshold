@@ -13,11 +13,6 @@ use Spryker\Shared\SalesOrderThreshold\SalesOrderThresholdConfig;
 
 class ExpenseRemover implements ExpenseRemoverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return void
-     */
     public function removeSalesOrderThresholdExpenses(CalculableObjectTransfer $calculableObjectTransfer): void
     {
         $calculableObjectTransfer->getExpenses()->exchangeArray(

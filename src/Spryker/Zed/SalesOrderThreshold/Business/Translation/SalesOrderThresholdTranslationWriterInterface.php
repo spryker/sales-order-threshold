@@ -11,17 +11,7 @@ use Generated\Shared\Transfer\SalesOrderThresholdTransfer;
 
 interface SalesOrderThresholdTranslationWriterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function saveLocalizedMessages(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): SalesOrderThresholdTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return void
-     */
     public function deleteLocalizedMessages(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): void;
 }

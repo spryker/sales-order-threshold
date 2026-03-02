@@ -50,12 +50,6 @@ class SalesOrderThresholdValueExpander implements SalesOrderThresholdValueExpand
      */
     protected $moneyFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Strategy\Resolver\SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToMoneyFacadeInterface $moneyFacade
-     */
     public function __construct(
         SalesOrderThresholdStrategyResolverInterface $salesOrderThresholdStrategyResolver,
         SalesOrderThresholdToGlossaryFacadeInterface $glossaryFacade,
@@ -109,13 +103,6 @@ class SalesOrderThresholdValueExpander implements SalesOrderThresholdValueExpand
         return $applicableSalesOrderThresholdValues;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param string $fee
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessageTransfer(
         SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer,
         CurrencyTransfer $currencyTransfer,
@@ -138,11 +125,6 @@ class SalesOrderThresholdValueExpander implements SalesOrderThresholdValueExpand
             ->setParameters($messageParams);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer
-     *
-     * @return int
-     */
     protected function calculateDeltaWithSubtotal(SalesOrderThresholdValueTransfer $salesOrderThresholdValueTransfer): int
     {
         $isHardMaximumThreshold = $salesOrderThresholdValueTransfer->getSalesOrderThresholdTypeOrFail()->getKey() === SalesOrderThresholdConfig::THRESHOLD_STRATEGY_KEY_HARD_MAXIMUM;
@@ -155,12 +137,6 @@ class SalesOrderThresholdValueExpander implements SalesOrderThresholdValueExpand
         return max($deltaWithSubtotal, 0);
     }
 
-    /**
-     * @param string $moneyValue
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyTransfer
-     */
     protected function createMoneyTransfer(
         string $moneyValue,
         CurrencyTransfer $currencyTransfer

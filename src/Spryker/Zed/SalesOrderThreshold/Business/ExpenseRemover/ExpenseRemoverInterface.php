@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\CalculableObjectTransfer;
 
 interface ExpenseRemoverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return void
-     */
     public function removeSalesOrderThresholdExpenses(CalculableObjectTransfer $calculableObjectTransfer): void;
 }

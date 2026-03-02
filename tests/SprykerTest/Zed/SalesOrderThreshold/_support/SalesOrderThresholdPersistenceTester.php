@@ -28,11 +28,6 @@ class SalesOrderThresholdPersistenceTester extends Actor
 {
     use _generated\SalesOrderThresholdPersistenceTesterActions;
 
-    /**
-     * @param int $idTaxSet
-     *
-     * @return void
-     */
     public function createSalesOrderThresholdTaxSetEntity(int $idTaxSet): void
     {
         $salesOrderThresholdTaxSet = new SpySalesOrderThresholdTaxSet();

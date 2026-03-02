@@ -29,11 +29,6 @@ class TaxRateReader implements TaxRateReaderInterface
      */
     protected SalesOrderThresholdToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToTaxFacadeInterface $taxFacade
-     * @param \Spryker\Zed\SalesOrderThreshold\Persistence\SalesOrderThresholdRepositoryInterface $repository
-     * @param \Spryker\Zed\SalesOrderThreshold\Dependency\Facade\SalesOrderThresholdToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         SalesOrderThresholdToTaxFacadeInterface $taxFacade,
         SalesOrderThresholdRepositoryInterface $repository,
@@ -44,11 +39,6 @@ class TaxRateReader implements TaxRateReaderInterface
         $this->storeFacade = $storeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return float
-     */
     public function getSalesOrderThresholdTaxRate(?StoreTransfer $storeTransfer = null): float
     {
         $countryIso2Code = $this->getCountryIso2Code($storeTransfer);
@@ -60,11 +50,6 @@ class TaxRateReader implements TaxRateReaderInterface
         return $this->taxFacade->getDefaultTaxRate();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string
-     */
     protected function getCountryIso2Code(?StoreTransfer $storeTransfer = null): string
     {
         if ($storeTransfer !== null) {

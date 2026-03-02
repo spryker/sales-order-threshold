@@ -27,10 +27,6 @@ class SalesOrderThresholdReader implements SalesOrderThresholdReaderInterface
      */
     protected $translationReader;
 
-    /**
-     * @param \Spryker\Zed\SalesOrderThreshold\Persistence\SalesOrderThresholdRepositoryInterface $salesOrderThresholdRepository
-     * @param \Spryker\Zed\SalesOrderThreshold\Business\Translation\SalesOrderThresholdTranslationReaderInterface $translationReader
-     */
     public function __construct(
         SalesOrderThresholdRepositoryInterface $salesOrderThresholdRepository,
         SalesOrderThresholdTranslationReaderInterface $translationReader

@@ -36,9 +36,6 @@ class SalesOrderThresholdTypeInstaller implements SalesOrderThresholdTypeInstall
         $this->salesOrderThresholdEntityManager = $salesOrderThresholdEntityManager;
     }
 
-    /**
-     * @return void
-     */
     public function install(): void
     {
         $this->getTransactionHandler()->handleTransaction(function () {
@@ -46,9 +43,6 @@ class SalesOrderThresholdTypeInstaller implements SalesOrderThresholdTypeInstall
         });
     }
 
-    /**
-     * @return void
-     */
     protected function executeInstallTransaction(): void
     {
         foreach ($this->salesOrderThresholdStrategyPlugins as $salesOrderThresholdStrategy) {

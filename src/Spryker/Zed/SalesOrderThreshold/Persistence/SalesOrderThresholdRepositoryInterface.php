@@ -36,24 +36,11 @@ interface SalesOrderThresholdRepositoryInterface
         CurrencyTransfer $currencyTransfer
     ): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer|null
-     */
     public function findSalesOrderThreshold(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
     ): ?SalesOrderThresholdTransfer;
 
-    /**
-     * @return int|null
-     */
     public function findSalesOrderThresholdTaxSetId(): ?int;
 
-    /**
-     * @param string $countryIso2Code
-     *
-     * @return float|null
-     */
     public function findMaxTaxRateByCountryIso2Code(string $countryIso2Code): ?float;
 }

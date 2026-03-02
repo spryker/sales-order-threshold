@@ -22,17 +22,11 @@ class SalesOrderThresholdToTaxFacadeBridge implements SalesOrderThresholdToTaxFa
         $this->taxFacade = $taxFacade;
     }
 
-    /**
-     * @return float
-     */
     public function getDefaultTaxRate(): float
     {
         return $this->taxFacade->getDefaultTaxRate();
     }
 
-    /**
-     * @return string
-     */
     public function getDefaultTaxCountryIso2Code(): string
     {
         return $this->taxFacade->getDefaultTaxCountryIso2Code();

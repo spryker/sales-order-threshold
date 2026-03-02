@@ -17,12 +17,6 @@ use Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdType;
 
 class SalesOrderThresholdMapper implements SalesOrderThresholdMapperInterface
 {
-    /**
-     * @param \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdType $spySalesOrderThresholdType
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer
-     */
     public function mapSalesOrderThresholdTypeEntityToTransfer(
         SpySalesOrderThresholdType $spySalesOrderThresholdType,
         SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
@@ -34,12 +28,6 @@ class SalesOrderThresholdMapper implements SalesOrderThresholdMapperInterface
         return $salesOrderThresholdTypeTransfer;
     }
 
-    /**
-     * @param \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThreshold $salesOrderThresholdEntity
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function mapSalesOrderThresholdEntityToTransfer(
         SpySalesOrderThreshold $salesOrderThresholdEntity,
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
@@ -68,12 +56,6 @@ class SalesOrderThresholdMapper implements SalesOrderThresholdMapperInterface
         return $salesOrderThresholdTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     * @param \Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThreshold $salesOrderThresholdEntity
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdValueTransfer
-     */
     protected function mapSalesOrderThresholdValueTransfer(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer,
         SpySalesOrderThreshold $salesOrderThresholdEntity

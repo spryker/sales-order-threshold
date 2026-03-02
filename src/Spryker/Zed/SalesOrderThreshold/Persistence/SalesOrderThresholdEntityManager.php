@@ -17,11 +17,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class SalesOrderThresholdEntityManager extends AbstractEntityManager implements SalesOrderThresholdEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTypeTransfer
-     */
     public function saveSalesOrderThresholdType(
         SalesOrderThresholdTypeTransfer $salesOrderThresholdTypeTransfer
     ): SalesOrderThresholdTypeTransfer {
@@ -47,11 +42,6 @@ class SalesOrderThresholdEntityManager extends AbstractEntityManager implements 
         return $salesOrderThresholdTypeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderThresholdTransfer
-     */
     public function saveSalesOrderThreshold(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): SalesOrderThresholdTransfer
     {
         $this->assertRequiredAttributes($salesOrderThresholdTransfer);
@@ -99,11 +89,6 @@ class SalesOrderThresholdEntityManager extends AbstractEntityManager implements 
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return bool
-     */
     public function deleteSalesOrderThreshold(
         SalesOrderThresholdTransfer $salesOrderThresholdTransfer
     ): bool {
@@ -122,11 +107,6 @@ class SalesOrderThresholdEntityManager extends AbstractEntityManager implements 
         return false;
     }
 
-    /**
-     * @param int $idTaxSet
-     *
-     * @return void
-     */
     public function saveSalesOrderThresholdTaxSet(int $idTaxSet): void
     {
         $this->getFactory()
@@ -136,11 +116,6 @@ class SalesOrderThresholdEntityManager extends AbstractEntityManager implements 
             ->save();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderThresholdTransfer $salesOrderThresholdTransfer
-     *
-     * @return void
-     */
     protected function assertRequiredAttributes(SalesOrderThresholdTransfer $salesOrderThresholdTransfer): void
     {
         $salesOrderThresholdTransfer
