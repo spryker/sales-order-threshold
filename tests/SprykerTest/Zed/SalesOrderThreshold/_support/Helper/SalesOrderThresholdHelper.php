@@ -8,6 +8,7 @@
 namespace SprykerTest\Zed\SalesOrderThreshold\Helper;
 
 use Codeception\Module;
+use Codeception\TestInterface;
 use Generated\Shared\DataBuilder\SalesOrderThresholdBuilder;
 use Generated\Shared\DataBuilder\SalesOrderThresholdValueBuilder;
 use Generated\Shared\Transfer\SalesOrderThresholdTransfer;
@@ -16,6 +17,8 @@ use Orm\Zed\SalesOrderThreshold\Persistence\Map\SpySalesOrderThresholdTableMap;
 use Orm\Zed\SalesOrderThreshold\Persistence\Map\SpySalesOrderThresholdTypeTableMap;
 use Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdQuery;
 use Orm\Zed\SalesOrderThreshold\Persistence\SpySalesOrderThresholdTypeQuery;
+use ReflectionClass;
+use Spryker\Zed\SalesOrderThreshold\Business\SalesOrderThreshold\Reader\SalesOrderThresholdReader;
 use Spryker\Zed\SalesOrderThreshold\Business\SalesOrderThresholdFacadeInterface;
 use SprykerTest\Shared\Testify\Helper\DataCleanupHelperTrait;
 use SprykerTest\Shared\Testify\Helper\LocatorHelperTrait;
@@ -35,10 +38,23 @@ class SalesOrderThresholdHelper extends Module
      */
     protected const ERROR_MESSAGE_EXPECTED = 'Expected at least %d entries in the database table `%s` and found %d entries.';
 
+    public function _after(TestInterface $test): void
+    {
+        $this->resetSalesOrderThresholdTransfersCache();
+    }
+
     public function truncateSalesOrderThresholds(): void
     {
         $this->getSalesOrderThresholdQuery()
             ->deleteAll();
+    }
+
+    protected function resetSalesOrderThresholdTransfersCache(): void
+    {
+        $reflection = new ReflectionClass(SalesOrderThresholdReader::class);
+        $property = $reflection->getProperty('salesOrderThresholdTransfersCache');
+        $property->setAccessible(true);
+        $property->setValue(null, []);
     }
 
     public function assertSalesOrderThresholdTableIsEmtpy(): void

@@ -44,6 +44,11 @@ class ExpandQuoteWithSalesOrderThresholdTest extends Unit
      */
     protected $tester;
 
+    protected function _before(): void
+    {
+        $this->tester->truncateSalesOrderThresholds();
+    }
+
     /**
      * @dataProvider quoteExpandedWithValidThresholdDeltasDataProvider
      *
