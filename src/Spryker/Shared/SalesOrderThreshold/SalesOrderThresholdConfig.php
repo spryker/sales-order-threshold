@@ -10,51 +10,71 @@ namespace Spryker\Shared\SalesOrderThreshold;
 class SalesOrderThresholdConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const GROUP_HARD = 'Hard';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const GROUP_HARD_MAX = 'Hard-Max';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const GROUP_SOFT = 'Soft';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const THRESHOLD_STRATEGY_KEY_HARD = 'hard-minimum-threshold';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const THRESHOLD_STRATEGY_KEY_HARD_MAXIMUM = 'hard-maximum-threshold';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const THRESHOLD_STRATEGY_KEY_SOFT = 'soft-minimum-threshold';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const THRESHOLD_STRATEGY_KEY_SOFT_FIXED_FEE = 'soft-minimum-threshold-fixed-fee';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const THRESHOLD_STRATEGY_KEY_SOFT_FLEXIBLE_FEE = 'soft-minimum-threshold-flexible-fee';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const THRESHOLD_EXPENSE_TYPE = 'THRESHOLD_EXPENSE_TYPE';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\Calculation\CalculationPriceMode::PRICE_MODE_NET
      *
      * @var string
@@ -62,11 +82,15 @@ class SalesOrderThresholdConfig
     public const PRICE_MODE_NET = 'NET_MODE';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const DEFAULT_TAX_RATE_ISO2CODE = 'DE';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\Tax\TaxConstants::TAX_EXEMPT_PLACEHOLDER
      *
      * @var string
