@@ -180,7 +180,6 @@ class ValidateSalesOrderThresholdsCheckoutDataTest extends Unit
     {
         $reflectedClass = new ReflectionClass(SalesOrderThresholdReader::class);
         $property = $reflectedClass->getProperty('salesOrderThresholdTransfersCache');
-        $property->setAccessible(true);
         $property->setValue(null);
     }
 }

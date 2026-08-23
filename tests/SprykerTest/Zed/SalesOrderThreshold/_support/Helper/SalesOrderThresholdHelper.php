@@ -53,7 +53,6 @@ class SalesOrderThresholdHelper extends Module
     {
         $reflection = new ReflectionClass(SalesOrderThresholdReader::class);
         $property = $reflection->getProperty('salesOrderThresholdTransfersCache');
-        $property->setAccessible(true);
         $property->setValue(null, []);
     }
 
